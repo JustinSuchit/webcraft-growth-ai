@@ -9,7 +9,8 @@ import { BRAND, type GeneratedImage, type ImageProvider, type SlideSpec } from "
  * Deterministic branded graphics rendered from JSX (no AI image model, no garbled text,
  * zero marginal cost). Output is JPEG because the Instagram API only accepts JPEG images.
  */
-const FONT_DIR = path.join(process.cwd(), "src/lib/integrations/image/fonts");
+// Geist (SIL OFL) ships in the `geist` dependency, so fonts come from node_modules rather than the repo.
+const FONT_DIR = path.join(process.cwd(), "node_modules/geist/dist/fonts/geist-sans");
 let fonts: Promise<{ name: string; data: Buffer; weight: 400 | 700 | 900; style: "normal" }[]> | undefined;
 const loadFonts = () =>
   (fonts ??= Promise.all(

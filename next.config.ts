@@ -10,7 +10,7 @@ const securityHeaders = [
 const config: NextConfig = {
   poweredByHeader: false,
   // Brand fonts are read from disk by the image renderer; make sure they ship with serverless functions.
-  outputFileTracingIncludes: { "/**": ["./src/lib/integrations/image/fonts/**"] },
+  outputFileTracingIncludes: { "/**": ["./node_modules/geist/dist/fonts/geist-sans/Geist-{Regular,Bold,Black}.ttf"] },
   images: { remotePatterns: [{ protocol: "https", hostname: "**.supabase.co" }] },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
